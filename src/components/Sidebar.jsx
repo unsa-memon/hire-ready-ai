@@ -40,12 +40,8 @@ export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = f
         border-border/40
         bg-card/80
         backdrop-blur-xl
-        h-[calc(100vh-4rem)]
-        lg:h-screen
-        fixed
-        lg:sticky
-        top-16
-        lg:top-0
+        isMobile ? 'h-full top-0' : 'h-screen top-0',
+        'sticky',
         z-40
         overflow-y-auto
         overflow-x-hidden

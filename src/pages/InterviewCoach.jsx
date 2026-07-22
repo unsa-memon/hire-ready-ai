@@ -513,9 +513,9 @@ export function InterviewCoach() {
                    {/* Input Area (only show if not evaluating and currently unanswered) */}
                    {!feedback[questions[currentQuestionIndex].id] && (
                      <div className="pt-4 border-t border-border/50 animate-in fade-in duration-700">
-                       <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 ml-2 flex items-center gap-2">
+                       <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 ml-2 flex items-center gap-2">
                          {isSubmitting ? <span className="flex items-center gap-2"><span className="w-3 h-3 rounded-full border-2 border-primary border-t-transparent animate-spin inline-block"></span> AI is evaluating response...</span> : `Your Response to Question ${currentQuestionIndex + 1}`}
-                       </p>
+                       </div>
                        <div className="relative group">
                          <textarea 
                             className="w-full min-h-[140px] p-4 pr-14 rounded-2xl border border-input bg-background/80 backdrop-blur-sm focus:ring-2 focus:ring-primary/50 focus:border-primary outline-none transition-all resize-none shadow-inner"
