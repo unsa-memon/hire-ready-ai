@@ -43,8 +43,7 @@ export function Navbar({ onMenuToggle }) {
 
 
       {/* Left Section */}
-      <div className="flex items-center gap-4">
-
+      <div className="flex items-center gap-2 sm:gap-4 min-w-0">
 
         {/* Mobile Menu */}
         <Button
@@ -54,6 +53,7 @@ export function Navbar({ onMenuToggle }) {
           lg:hidden
           hover:bg-primary/10
           rounded-xl
+          flex-shrink-0
           "
           onClick={onMenuToggle}
         >
@@ -63,58 +63,47 @@ export function Navbar({ onMenuToggle }) {
           />
         </Button>
 
-
-
         {/* Mobile Logo */}
-   <Link 
-  to="/"
-  className="
-flex 
-items-center 
-gap-3
-"
->
+        <Link 
+          to="/"
+          className="
+          flex 
+          items-center 
+          gap-2 sm:gap-3
+          min-w-0
+          "
+        >
+          <div 
+            className="
+            w-8 sm:w-9 
+            h-8 sm:h-9 
+            rounded-xl
+            bg-gradient-to-tr 
+            from-indigo-500 
+            to-cyan-500
+            flex 
+            items-center 
+            justify-center
+            text-white
+            shadow-lg
+            shadow-indigo-500/30
+            flex-shrink-0
+            "
+          >
+            <span className="font-black text-base sm:text-lg">
+              H
+            </span>
+          </div>
 
-  <div 
-    className="
-    w-9 
-    h-9 
-    rounded-xl
-
-    bg-gradient-to-tr 
-    from-indigo-500 
-    to-cyan-500
-
-    flex 
-    items-center 
-    justify-center
-
-    text-white
-
-    shadow-lg
-    shadow-indigo-500/30
-    "
-  >
-
-    <span className="
-    font-black 
-    text-lg
-    ">
-      H
-    </span>
-
-  </div>
-
-
-
-          <div className="flex flex-col leading-tight">
+          <div className="flex flex-col leading-tight min-w-0">
             <span 
               className="
               font-extrabold
-              text-base
+              text-sm sm:text-base
               tracking-tight
               text-slate-900
               dark:text-white
+              whitespace-nowrap
               "
             >
               HireReady AI
@@ -128,28 +117,24 @@ gap-3
               uppercase
               text-blue-600
               dark:text-blue-400
+              hidden md:block
               "
             >
               Your AI-Powered Career Assistant
             </span>
           </div>
-
-
-</Link>
+        </Link>
       </div>
-
-
-
-
 
       {/* Right Section */}
       <div 
         className="
         flex 
         items-center 
-        gap-3 
+        gap-1.5 sm:gap-3 
         lg:gap-5 
         ml-auto
+        flex-shrink-0
         "
       >
 

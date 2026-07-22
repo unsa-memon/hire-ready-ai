@@ -122,27 +122,27 @@ export function LandingPage() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 via-indigo-50/50 to-purple-50/40 dark:from-slate-950 dark:via-indigo-950/40 dark:to-slate-900 selection:bg-indigo-500/20">
       {/* NAVBAR */}
-      <header className="sticky top-4 w-[92%] max-w-7xl mx-auto h-16 rounded-2xl flex items-center justify-between px-6 z-50 backdrop-blur-md bg-white/40 dark:bg-slate-900/40 border border-white/40 dark:border-slate-800/60 shadow-lg shadow-indigo-500/5">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 via-primary to-purple-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/30">
-            <Target size={22} strokeWidth={2.5} />
+      <header className="sticky top-2 sm:top-4 w-[96%] sm:w-[92%] max-w-7xl mx-auto h-14 sm:h-16 rounded-2xl flex items-center justify-between px-3 sm:px-6 z-50 backdrop-blur-md bg-white/40 dark:bg-slate-900/40 border border-white/40 dark:border-slate-800/60 shadow-lg shadow-indigo-500/5">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+          <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-xl bg-gradient-to-br from-indigo-600 via-primary to-purple-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/30 flex-shrink-0">
+            <Target size={20} strokeWidth={2.5} />
           </div>
-          <div className="flex flex-col leading-tight">
-            <span className="font-extrabold text-lg text-slate-900 dark:text-white tracking-tight">
+          <div className="flex flex-col leading-tight min-w-0">
+            <span className="font-extrabold text-sm sm:text-lg text-slate-900 dark:text-white tracking-tight whitespace-nowrap">
               HireReady AI
             </span>
-            <span className="text-[10px] font-extrabold tracking-wider uppercase text-blue-600 dark:text-blue-400">
+            <span className="text-[10px] font-extrabold tracking-wider uppercase text-blue-600 dark:text-blue-400 hidden md:block">
               Your AI-Powered Career Assistant
             </span>
           </div>
         </div>
 
-        <div className="flex items-center gap-4 sm:gap-6">
-          <Link to="/login" className="text-sm font-extrabold text-slate-700 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400 transition-colors">
+        <div className="flex items-center gap-2 sm:gap-6 flex-shrink-0">
+          <Link to="/login" className="text-xs sm:text-sm font-extrabold text-slate-700 hover:text-indigo-600 dark:text-slate-200 dark:hover:text-indigo-400 transition-colors">
             Login
           </Link>
           <Link to="/signup">
-            <Button className="rounded-xl px-5 h-10 bg-gradient-to-r from-indigo-600 via-primary to-purple-600 text-white font-extrabold text-sm shadow-md shadow-indigo-500/25 hover:shadow-indigo-500/35 transition-all duration-300 hover:scale-105 border-none">
+            <Button className="rounded-xl px-3 sm:px-5 h-9 sm:h-10 bg-gradient-to-r from-indigo-600 via-primary to-purple-600 text-white font-extrabold text-xs sm:text-sm shadow-md shadow-indigo-500/25 hover:shadow-indigo-500/35 transition-all duration-300 hover:scale-105 border-none whitespace-nowrap">
               Get Started Free
             </Button>
           </Link>
