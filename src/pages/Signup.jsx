@@ -30,7 +30,12 @@ export function Signup() {
       toast.success("Account created successfully.");
       navigate('/check-email', { state: { email } }); 
     } else {
-      toast.error(error || "Failed to create account");
+      const isRateLimit = error?.toLowerCase().includes("rate limit") || error?.toLowerCase().includes("rate_limit");
+      if (isRateLimit) {
+        toast.error("Email rate limit exceeded. Please wait a few minutes before trying again or sign in to your existing account.", { duration: 6000 });
+      } else {
+        toast.error(error || "Failed to create account");
+      }
     }
   };
 

@@ -18,38 +18,33 @@ export function Login() {
 
   useEffect(() => {
     // If user is already logged in normally without a verify parameter context, send them home.
-    if (currentUser && !searchParams.get('code') && !searchParams.get('error')) {
+    const hash = window.location.hash;
+    const isCallback = searchParams.get('code') || searchParams.get('error') || hash.includes('access_token') || hash.includes('type=');
+
+    if (currentUser && !isCallback) {
       navigate('/dashboard');
     }
   }, [currentUser, navigate, searchParams]);
 
   useEffect(() => {
-    // Handle Supabase verification redirect parsing
-    const errorDesc = searchParams.get('error_description');
-    const errorCode = searchParams.get('error');
+    // Handle Supabase verification redirect parsing (both Query Params & Hash Fragments)
+    const hash = window.location.hash;
+    const hashParams = new URLSearchParams(hash.startsWith('#') ? hash.substring(1) : hash);
     
-    // In PKCE flow, if a 'code' is present, the auth context will automatically exchange it for a session.
-    // If they verify their email, we want to sign them out so they physically type their credentials.
-    if (searchParams.get('code') || searchParams.get('type') === 'recovery') {
-      if (currentUser) {
-        logout().then(() => {
-           toast.success("Email verified successfully. Please sign in.");
-        });
-      } else {
-        // If auth context hasn't picked up the session yet, wait a tiny bit or just show toast
-        const timer = setTimeout(() => {
-          if (currentUser) {
-            logout();
-          }
-          toast.success("Email verified successfully. Please sign in.", { id: 'verify-toast' });
-        }, 1000);
-        return () => clearTimeout(timer);
-      }
+    const isCodePresent = searchParams.get('code') || hashParams.get('access_token');
+    const authType = searchParams.get('type') || hashParams.get('type');
+    const errorDesc = searchParams.get('error_description') || hashParams.get('error_description');
+    const errorCode = searchParams.get('error') || hashParams.get('error');
+    
+    if (isCodePresent || authType === 'signup' || authType === 'recovery' || authType === 'magiclink') {
+      toast.success("Email verified successfully! Please log in to continue.", { id: 'verify-toast' });
+      // Clean URL bar without triggering page reload
+      window.history.replaceState(null, '', window.location.pathname);
     } else if (errorDesc || errorCode) {
-      // Decode URL formatted error message (e.g. Email link is invalid or has expired)
-      toast.error(errorDesc ? errorDesc.replace(/\+/g, ' ') : "Authentication link is invalid.");
+      const formattedError = errorDesc ? decodeURIComponent(errorDesc.replace(/\+/g, ' ')) : "Authentication link is invalid or expired.";
+      toast.error(formattedError, { id: 'verify-error-toast' });
     }
-  }, [searchParams, currentUser, logout]);
+  }, [searchParams]);
 
   const handleLogin = async (e) => {
     e.preventDefault();

@@ -21,7 +21,12 @@ export function CheckEmail() {
     if (success) {
       toast.success("Verification email resent successfully! Check your inbox.");
     } else {
-      toast.error(error || "Failed to resend verification email.");
+      const isRateLimit = error?.toLowerCase().includes("rate limit") || error?.toLowerCase().includes("rate_limit");
+      if (isRateLimit) {
+        toast.error("Email rate limit exceeded. Please wait a few minutes before resending.", { duration: 6000 });
+      } else {
+        toast.error(error || "Failed to resend verification email.");
+      }
     }
   };
 
