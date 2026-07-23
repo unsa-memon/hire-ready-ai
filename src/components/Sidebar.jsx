@@ -20,12 +20,14 @@ import {
 import { cn } from '../lib/utils';
 import { useAppContext } from '../context/AppContext';
 import { useAuth } from '../context/AuthContext';
+import { UpgradeModal } from './UpgradeModal';
 
 export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = false }) {
   const navigate = useNavigate();
   const { logout } = useAuth();
   const { userPlan, setUserPlan, resumesCount, activePlanInfo, PLAN_LIMITS } = useAppContext();
   const [showPlanMenu, setShowPlanMenu] = useState(false);
+  const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
 
   const handleLogout = async () => {
     await logout();
@@ -213,44 +215,24 @@ export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = f
             <div className="flex items-center justify-between mb-1.5">
               <div className="flex items-center gap-1.5">
                 <Zap size={15} className="text-amber-500 fill-amber-500/20" />
-                <span className="font-extrabold text-xs tracking-tight text-foreground">
-                  {activePlanInfo.name}
-                </span>
+                <div>
+                  <span className="font-extrabold text-xs tracking-tight text-foreground block">
+                    {activePlanInfo.name}
+                  </span>
+                  <span className="text-[10px] font-bold text-emerald-500">
+                    {activePlanInfo.price} {activePlanInfo.period}
+                  </span>
+                </div>
               </div>
               
-              {/* Plan Switcher Button */}
+              {/* Upgrade Button */}
               <button
-                onClick={() => setShowPlanMenu(!showPlanMenu)}
-                className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors flex items-center gap-1"
+                onClick={() => setIsUpgradeModalOpen(true)}
+                className="text-[10px] font-black px-2.5 py-1 rounded-full bg-gradient-to-r from-amber-500 to-indigo-600 text-white shadow-sm hover:opacity-90 transition-opacity flex items-center gap-1"
               >
-                Change <ChevronDown size={12} />
+                {userPlan === 'free' ? 'Upgrade' : 'Manage'} <ChevronDown size={12} />
               </button>
             </div>
-
-            {/* Plan Tier Selector Modal Dropdown */}
-            {showPlanMenu && (
-              <div className="my-2 p-2 bg-background border border-border rounded-xl space-y-1 shadow-lg animate-in fade-in zoom-in duration-150">
-                <p className="text-[10px] font-bold text-muted-foreground uppercase px-2 py-1">Select Tier:</p>
-                {Object.values(PLAN_LIMITS).map((p) => (
-                  <button
-                    key={p.id}
-                    onClick={() => {
-                      setUserPlan(p.id);
-                      setShowPlanMenu(false);
-                    }}
-                    className={cn(
-                      "w-full text-left text-xs px-2 py-1.5 rounded-lg flex justify-between items-center transition-colors font-semibold",
-                      userPlan === p.id 
-                        ? "bg-primary text-primary-foreground font-bold" 
-                        : "hover:bg-accent text-foreground"
-                    )}
-                  >
-                    <span>{p.name}</span>
-                    <span className="text-[10px] opacity-80">Max {p.maxResumes} Resumes</span>
-                  </button>
-                ))}
-              </div>
-            )}
 
             <p className="text-[11px] text-muted-foreground font-medium mb-2">
               <strong className="text-foreground">{resumesCount}</strong> of <strong className="text-foreground">{maxResumes}</strong> Resumes used
@@ -265,13 +247,13 @@ export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = f
           </div>
         ) : (
           <div
-            onClick={() => setShowPlanMenu(!showPlanMenu)}
-            title={`${activePlanInfo.name} (${resumesCount}/${maxResumes} Resumes)`}
+            onClick={() => setIsUpgradeModalOpen(true)}
+            title={`${activePlanInfo.name} (${activePlanInfo.price}) - ${resumesCount}/${maxResumes} Resumes`}
             className="flex justify-center items-center p-3 rounded-2xl bg-primary/10 border border-primary/20 text-primary w-12 mx-auto cursor-pointer group relative"
           >
             <Zap size={18} />
             <div className="absolute left-full ml-3 px-3 py-1.5 bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 rounded-xl text-xs font-extrabold whitespace-nowrap shadow-xl opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50">
-              {activePlanInfo.name} ({resumesCount}/{maxResumes})
+              {activePlanInfo.name} ({activePlanInfo.price})
             </div>
           </div>
         )}
@@ -294,6 +276,12 @@ export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = f
           )}
         </button>
       </div>
+
+      {/* Upgrade & Pricing Modal */}
+      <UpgradeModal
+        isOpen={isUpgradeModalOpen}
+        onClose={() => setIsUpgradeModalOpen(false)}
+      />
     </aside>
   );
 }

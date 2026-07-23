@@ -3,9 +3,9 @@ import { useAuth } from './AuthContext';
 import { supabase } from '../lib/supabase';
 
 export const PLAN_LIMITS = {
-  free: { id: 'free', name: 'Free Plan', maxResumes: 2, badge: 'Free Tier', color: 'from-slate-600 to-slate-800' },
-  pro: { id: 'pro', name: 'Pro Plan', maxResumes: 5, badge: 'Pro Tier', color: 'from-blue-600 to-indigo-600' },
-  premium: { id: 'premium', name: 'Premium Plan', maxResumes: 10, badge: 'Premium Tier', color: 'from-amber-500 to-purple-600' }
+  free: { id: 'free', name: 'Free Plan', price: '$0', priceValue: 0, period: 'Forever Free', maxResumes: 2, badge: 'Free Tier', color: 'from-slate-600 to-slate-800', desc: 'Basic resume parsing & ATS check' },
+  pro: { id: 'pro', name: 'Pro Plan', price: '$9.99', priceValue: 9.99, period: '/month', maxResumes: 5, badge: 'Pro Tier', color: 'from-blue-600 to-indigo-600', desc: 'Full AI analysis & skill gap roadmap' },
+  premium: { id: 'premium', name: 'Premium Plan', price: '$19.99', priceValue: 19.99, period: '/month', maxResumes: 10, badge: 'Premium Tier', color: 'from-amber-500 to-purple-600', desc: 'Unlimited AI re-scans & interview coach' }
 };
 
 const AppContext = createContext();
