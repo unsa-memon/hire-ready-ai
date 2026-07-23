@@ -59,8 +59,7 @@ export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = f
         ${isMobile ? 'h-full top-0' : 'h-screen top-0'}
         sticky
         z-40
-        overflow-y-auto
-        overflow-x-hidden
+        overflow-hidden
         transition-all
         duration-300
         ease-in-out
@@ -120,8 +119,8 @@ export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = f
         )}
       </div>
 
-      {/* Navigation Links */}
-      <nav className="flex-1 space-y-1.5 p-3">
+      {/* Navigation Links - Scrollable Area */}
+      <nav className="flex-1 overflow-y-auto space-y-1.5 p-3 min-h-0">
         {navItems.map((item) => (
           <NavLink
             key={item.path}
@@ -205,8 +204,8 @@ export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = f
         ))}
       </nav>
 
-      {/* Bottom Section: 3-Tier Plan Widget & Logout */}
-      <div className="p-3 space-y-2 mt-auto border-t border-border/40">
+      {/* Bottom Section: 3-Tier Plan Widget & Logout - Always Fixed at Bottom */}
+      <div className="p-3 space-y-2 border-t border-border/40 flex-shrink-0 bg-card/90">
         {!isCollapsed ? (
           <div className="relative rounded-2xl border border-border/60 bg-gradient-to-br from-surface-50 to-surface-100 dark:from-surface-900/80 dark:to-surface-950/90 p-3.5 shadow-sm">
             <div className="flex items-center justify-between mb-1.5">

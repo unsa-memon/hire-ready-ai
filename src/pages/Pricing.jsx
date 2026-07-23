@@ -102,12 +102,12 @@ export function Pricing() {
               }`}
             >
               {isCurrent && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20 px-4 py-1 rounded-full bg-primary text-primary-foreground text-xs font-black tracking-wider uppercase shadow-lg border-2 border-background">
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20 px-4 py-1 rounded-full bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 text-xs font-black tracking-wider uppercase shadow-xl border-2 border-background">
                   Active Plan
                 </div>
               )}
               {isPremium && !isCurrent && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20 px-4 py-1 rounded-full bg-gradient-to-r from-amber-500 to-purple-600 text-white text-xs font-black tracking-wider uppercase flex items-center gap-1.5 shadow-lg border-2 border-background">
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20 px-4 py-1 rounded-full bg-gradient-to-r from-amber-500 to-purple-600 text-white text-xs font-black tracking-wider uppercase flex items-center gap-1.5 shadow-xl border-2 border-background">
                   <Sparkles size={14} /> Best Value
                 </div>
               )}
@@ -154,20 +154,24 @@ export function Pricing() {
               </div>
 
               <div className="pt-8">
-                <Button
-                  onClick={() => handleSelectPlan(plan.id)}
-                  disabled={isCurrent}
-                  variant={isCurrent ? 'outline' : isPremium ? 'default' : 'secondary'}
-                  className={`w-full h-12 rounded-xl font-extrabold text-sm transition-all ${
-                    isCurrent
-                      ? 'cursor-default opacity-80'
-                      : isPremium
-                      ? 'bg-gradient-to-r from-amber-500 via-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/25 hover:shadow-xl'
-                      : ''
-                  }`}
-                >
-                  {isCurrent ? 'Current Plan' : plan.price === '$0' ? 'Switch to Free' : `Upgrade (${plan.price}/mo)`}
-                </Button>
+                {isCurrent ? (
+                  <Button disabled variant="outline" className="w-full h-12 rounded-xl font-bold cursor-default opacity-80">
+                    Current Active Plan
+                  </Button>
+                ) : plan.id === 'free' ? (
+                  <Button onClick={() => handleSelectPlan('free')} variant="secondary" className="w-full h-12 rounded-xl font-extrabold text-sm">
+                    Switch to Free
+                  </Button>
+                ) : (
+                  <div>
+                    <Button disabled variant="outline" className="w-full h-12 rounded-xl font-bold opacity-60 cursor-not-allowed gap-2 border-border/80">
+                      <Lock size={15} /> Payment Gateway Coming Soon
+                    </Button>
+                    <p className="text-[11px] text-center text-muted-foreground mt-2 font-medium">
+                      Bank card processing is under setup.
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           );
