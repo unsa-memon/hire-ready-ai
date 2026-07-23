@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard,
@@ -14,20 +14,16 @@ import {
   Menu,
   ChevronLeft,
   Zap,
-  LogOut,
-  ChevronDown
+  LogOut
 } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { useAppContext } from '../context/AppContext';
 import { useAuth } from '../context/AuthContext';
-import { UpgradeModal } from './UpgradeModal';
 
 export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = false }) {
   const navigate = useNavigate();
   const { logout } = useAuth();
-  const { userPlan, setUserPlan, resumesCount, activePlanInfo, PLAN_LIMITS } = useAppContext();
-  const [showPlanMenu, setShowPlanMenu] = useState(false);
-  const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
+  const { userPlan, resumesCount, activePlanInfo } = useAppContext();
 
   const handleLogout = async () => {
     await logout();
@@ -44,6 +40,7 @@ export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = f
     { label: 'Cover Letter', icon: FileEdit, path: '/cover-letter' },
     { label: 'Interview Coach', icon: Video, path: '/interview' },
     { label: 'Final Report', icon: Award, path: '/report' },
+    { label: 'Pricing & Plans', icon: Zap, path: '/pricing' },
     { label: 'History', icon: History, path: '/history' },
   ];
 
@@ -225,12 +222,12 @@ export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = f
                 </div>
               </div>
               
-              {/* Upgrade Button */}
+              {/* Upgrade / Manage Button */}
               <button
-                onClick={() => setIsUpgradeModalOpen(true)}
-                className="text-[10px] font-black px-2.5 py-1 rounded-full bg-gradient-to-r from-amber-500 to-indigo-600 text-white shadow-sm hover:opacity-90 transition-opacity flex items-center gap-1"
+                onClick={() => navigate('/pricing')}
+                className="text-[10px] font-black px-2.5 py-1 rounded-full bg-gradient-to-r from-amber-500 to-indigo-600 text-white shadow-sm hover:opacity-90 transition-opacity"
               >
-                {userPlan === 'free' ? 'Upgrade' : 'Manage'} <ChevronDown size={12} />
+                {userPlan === 'free' ? 'Upgrade' : 'Manage'}
               </button>
             </div>
 
@@ -247,7 +244,7 @@ export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = f
           </div>
         ) : (
           <div
-            onClick={() => setIsUpgradeModalOpen(true)}
+            onClick={() => navigate('/pricing')}
             title={`${activePlanInfo.name} (${activePlanInfo.price}) - ${resumesCount}/${maxResumes} Resumes`}
             className="flex justify-center items-center p-3 rounded-2xl bg-primary/10 border border-primary/20 text-primary w-12 mx-auto cursor-pointer group relative"
           >
@@ -276,12 +273,6 @@ export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = f
           )}
         </button>
       </div>
-
-      {/* Upgrade & Pricing Modal */}
-      <UpgradeModal
-        isOpen={isUpgradeModalOpen}
-        onClose={() => setIsUpgradeModalOpen(false)}
-      />
     </aside>
   );
 }

@@ -20,6 +20,7 @@ import { CoverLetter } from './pages/CoverLetter';
 import { InterviewCoach } from './pages/InterviewCoach';
 import { FinalReport } from './pages/FinalReport';
 import { History } from './pages/History';
+import { Pricing } from './pages/Pricing';
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
               <Route path="/cover-letter" element={<CoverLetter />} />
               <Route path="/interview" element={<InterviewCoach />} />
               <Route path="/report" element={<FinalReport />} />
+              <Route path="/pricing" element={<Pricing />} />
               <Route path="/history" element={<History />} />
             </Route>
           </Routes>
