@@ -53,9 +53,13 @@ export function Pricing() {
           </p>
         </div>
         <div className="flex items-center gap-3">
-          <Button variant="outline" size="sm" onClick={() => navigate(-1)} className="gap-2">
-            <ArrowLeft size={16} /> Back
-          </Button>
+          <button
+            onClick={() => navigate(-1)}
+            className="group flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-foreground bg-surface-100/90 dark:bg-surface-800/90 border border-border shadow-sm hover:shadow-md hover:border-primary/50 hover:text-primary transition-all duration-300 hover:-translate-x-0.5"
+          >
+            <ArrowLeft size={16} className="transition-transform duration-300 group-hover:-translate-x-1" />
+            <span>Back</span>
+          </button>
         </div>
       </div>
 
