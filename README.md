@@ -1,4 +1,4 @@
-# 🎯 HireReady AI — Next-Gen AI Career Engine
+# HireReady AI — Next-Gen AI Career Engine
 
 [![Live Application](https://img.shields.io/badge/Live_App-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://hire-ready-ai-rose.vercel.app/)
 [![React](https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
@@ -390,5 +390,5 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 ---
 
 <p center align="center">
-  Made with ❤️ by <strong>Unsa Memon</strong> for the Final Project Assignment.
+  Made with ❤️ by <strong>Unsa Memon</strong>.
 </p>
