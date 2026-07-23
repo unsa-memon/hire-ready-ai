@@ -102,12 +102,12 @@ export function Pricing() {
               }`}
             >
               {isCurrent && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-primary-foreground text-xs font-black tracking-wider uppercase shadow-md">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20 px-4 py-1 rounded-full bg-primary text-primary-foreground text-xs font-black tracking-wider uppercase shadow-lg border-2 border-background">
                   Active Plan
                 </div>
               )}
               {isPremium && !isCurrent && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-amber-500 to-purple-600 text-white text-xs font-black tracking-wider uppercase flex items-center gap-1.5 shadow-md">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-20 px-4 py-1 rounded-full bg-gradient-to-r from-amber-500 to-purple-600 text-white text-xs font-black tracking-wider uppercase flex items-center gap-1.5 shadow-lg border-2 border-background">
                   <Sparkles size={14} /> Best Value
                 </div>
               )}
