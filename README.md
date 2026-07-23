@@ -180,6 +180,19 @@ async function generateSafeContent(prompt, responseSchema, maxRetries = 3) {
 }
 ```
 
+### 3. System Prompts & AI Instructions Behind Core Features
+
+The table below documents the exact instructions and prompts engineered for each AI module in [gemini.js](file:///c:/Users/PMYLS/Desktop/hire-ready-ai/src/lib/gemini.js):
+
+| AI Feature | AI Purpose & Instruction Prompt | Output Format Schema |
+| :--- | :--- | :--- |
+| **1. Resume Analysis** | `"Analyze this resume against the target job description. Extract core strengths and distinct weaknesses/areas to improve."` | `{ strengths: [], weaknesses: [] }` |
+| **2. ATS Matcher** | `"Act as a strict Applicant Tracking System (ATS). Compare resume terminology to job requirements. Calculate integer score out of 100, matching keywords, and missing required keywords."` | `{ score: 85, matching_keywords: [], missing_keywords: [] }` |
+| **3. Skill Gap & Roadmap** | `"Contrast resume against job requirements. Identify missing hard technical and soft skills. Fabricate a 3-step practical learning roadmap with phase, task, project_idea, estimated_time, and impact_level."` | `{ missing_technical: [], missing_soft: [], roadmap: [{ phase, task, project_idea, estimated_time, impact_level }] }` |
+| **4. Cover Letter Generator** | `"Write a compelling, professional cover letter targeted towards this exact position leveraging experience in the resume. Human, punchy, under 350 words with quantifiable achievements."` | `{ content: "..." }` |
+| **5. Interview Questions & Evaluation** | `"You are a strict technical hiring manager. Generate 10 relevant interview questions (4 technical, 3 behavioral STAR, 2 system architecture, 1 team leadership). Evaluate candidate answers 0-100 with feedback."` | Questions: `[string]`, Feedback: `{ score: 90, feedback: "..." }` |
+| **6. Executive Summary Report** | `"Provide a conclusive executive summary (3-4 sentences) dictating whether candidate is highly competitive, moderately aligned, or under-qualified. Include holistic match score out of 100."` | `{ overall_score: 88, summary: "..." }` |
+
 ---
 
 ## 📸 UI Screenshots
