@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 export function ResumeUpload() {
-  const { activeResumeDetails, setActiveResumeId } = useAppContext();
+  const { activeResumeDetails, setActiveResumeId, activePlanInfo, refreshResumesCount } = useAppContext();
   const { currentUser } = useAuth();
   
   const [dragActive, setDragActive] = useState(false);
@@ -29,14 +29,13 @@ export function ResumeUpload() {
     }
   };
 
-  const validateFile = (selectedFile) => {
-    if (!selectedFile) return false;
-    if (selectedFile.type !== 'application/pdf') {
-      toast.error('Only PDF files are supported.');
+  const validateFile = (file) => {
+    if (file.type !== "application/pdf") {
+      toast.error("Please upload a PDF file.");
       return false;
     }
-    if (selectedFile.size > 5 * 1024 * 1024) {
-      toast.error('File exceeds 5MB size limit.');
+    if (file.size > 10 * 1024 * 1024) {
+      toast.error("File size must be less than 10MB.");
       return false;
     }
     return true;
@@ -75,9 +74,10 @@ export function ResumeUpload() {
 
       if (countError) throw countError;
 
-      // 2. Enforce Demo Limit (Max 2 Resumes per user account)
-      if (count >= 2) {
-        toast.error("Demo limit reached. You can upload a maximum of 2 resumes.");
+      // 2. Enforce Tier Plan Limit (Free: 2, Pro: 5, Premium: 10)
+      const maxLimit = activePlanInfo?.maxResumes || 2;
+      if (count >= maxLimit) {
+        toast.error(`${activePlanInfo?.name || 'Plan'} limit reached. You can upload a maximum of ${maxLimit} resumes. Upgrade your plan for higher limits!`);
         return;
       }
 

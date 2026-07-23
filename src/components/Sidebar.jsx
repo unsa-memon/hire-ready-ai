@@ -1,5 +1,5 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard,
   FileText,
@@ -13,11 +13,25 @@ import {
   Compass,
   Menu,
   ChevronLeft,
-  Zap
+  Zap,
+  LogOut,
+  ChevronDown
 } from 'lucide-react';
 import { cn } from '../lib/utils';
+import { useAppContext } from '../context/AppContext';
+import { useAuth } from '../context/AuthContext';
 
 export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = false }) {
+  const navigate = useNavigate();
+  const { logout } = useAuth();
+  const { userPlan, setUserPlan, resumesCount, activePlanInfo, PLAN_LIMITS } = useAppContext();
+  const [showPlanMenu, setShowPlanMenu] = useState(false);
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/login');
+  };
+
   const navItems = [
     { label: 'Dashboard', icon: LayoutDashboard, path: '/dashboard' },
     { label: 'Upload Resume', icon: FileText, path: '/upload' },
@@ -31,6 +45,9 @@ export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = f
     { label: 'History', icon: History, path: '/history' },
   ];
 
+  const maxResumes = activePlanInfo?.maxResumes || 2;
+  const usagePercentage = Math.min(100, Math.round((resumesCount / maxResumes) * 100));
+
   return (
     <aside
       className={cn(
@@ -40,8 +57,8 @@ export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = f
         border-border/40
         bg-card/80
         backdrop-blur-xl
-        isMobile ? 'h-full top-0' : 'h-screen top-0',
-        'sticky',
+        ${isMobile ? 'h-full top-0' : 'h-screen top-0'}
+        sticky
         z-40
         overflow-y-auto
         overflow-x-hidden
@@ -189,25 +206,93 @@ export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = f
         ))}
       </nav>
 
-      {/* Bottom Pro Card */}
-      <div className="p-3 mt-auto">
+      {/* Bottom Section: 3-Tier Plan Widget & Logout */}
+      <div className="p-3 space-y-2 mt-auto border-t border-border/40">
         {!isCollapsed ? (
-          <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-gradient-to-br from-surface-50 to-surface-100 dark:from-surface-900 dark:to-surface-950 p-4 shadow-inner">
-            <div className="absolute top-0 right-0 -mr-5 -mt-5 w-20 h-20 rounded-full bg-blue-500/10 blur-xl" />
-            <h4 className="font-bold text-sm mb-1 text-foreground">Pro Plan Active</h4>
-            <p className="text-xs text-muted-foreground mb-3">You have 12 analyses remaining this month.</p>
-            <div className="w-full bg-surface-200 dark:bg-black/40 rounded-full h-1.5 overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-600 to-indigo-500 h-1.5 rounded-full" style={{ width: '40%' }} />
+          <div className="relative rounded-2xl border border-border/60 bg-gradient-to-br from-surface-50 to-surface-100 dark:from-surface-900/80 dark:to-surface-950/90 p-3.5 shadow-sm">
+            <div className="flex items-center justify-between mb-1.5">
+              <div className="flex items-center gap-1.5">
+                <Zap size={15} className="text-amber-500 fill-amber-500/20" />
+                <span className="font-extrabold text-xs tracking-tight text-foreground">
+                  {activePlanInfo.name}
+                </span>
+              </div>
+              
+              {/* Plan Switcher Button */}
+              <button
+                onClick={() => setShowPlanMenu(!showPlanMenu)}
+                className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors flex items-center gap-1"
+              >
+                Change <ChevronDown size={12} />
+              </button>
+            </div>
+
+            {/* Plan Tier Selector Modal Dropdown */}
+            {showPlanMenu && (
+              <div className="my-2 p-2 bg-background border border-border rounded-xl space-y-1 shadow-lg animate-in fade-in zoom-in duration-150">
+                <p className="text-[10px] font-bold text-muted-foreground uppercase px-2 py-1">Select Tier:</p>
+                {Object.values(PLAN_LIMITS).map((p) => (
+                  <button
+                    key={p.id}
+                    onClick={() => {
+                      setUserPlan(p.id);
+                      setShowPlanMenu(false);
+                    }}
+                    className={cn(
+                      "w-full text-left text-xs px-2 py-1.5 rounded-lg flex justify-between items-center transition-colors font-semibold",
+                      userPlan === p.id 
+                        ? "bg-primary text-primary-foreground font-bold" 
+                        : "hover:bg-accent text-foreground"
+                    )}
+                  >
+                    <span>{p.name}</span>
+                    <span className="text-[10px] opacity-80">Max {p.maxResumes} Resumes</span>
+                  </button>
+                ))}
+              </div>
+            )}
+
+            <p className="text-[11px] text-muted-foreground font-medium mb-2">
+              <strong className="text-foreground">{resumesCount}</strong> of <strong className="text-foreground">{maxResumes}</strong> Resumes used
+            </p>
+
+            <div className="w-full bg-surface-200 dark:bg-black/50 rounded-full h-1.5 overflow-hidden">
+              <div
+                className={`h-1.5 rounded-full bg-gradient-to-r ${activePlanInfo.color || 'from-blue-600 to-indigo-500'} transition-all duration-500`}
+                style={{ width: `${usagePercentage}%` }}
+              />
             </div>
           </div>
         ) : (
-          <div title="Pro Plan Active (12 remaining)" className="flex justify-center items-center p-3 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-600 dark:text-amber-400 w-12 mx-auto cursor-pointer group relative">
-            <Zap size={20} />
+          <div
+            onClick={() => setShowPlanMenu(!showPlanMenu)}
+            title={`${activePlanInfo.name} (${resumesCount}/${maxResumes} Resumes)`}
+            className="flex justify-center items-center p-3 rounded-2xl bg-primary/10 border border-primary/20 text-primary w-12 mx-auto cursor-pointer group relative"
+          >
+            <Zap size={18} />
             <div className="absolute left-full ml-3 px-3 py-1.5 bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 rounded-xl text-xs font-extrabold whitespace-nowrap shadow-xl opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50">
-              Pro Plan Active
+              {activePlanInfo.name} ({resumesCount}/{maxResumes})
             </div>
           </div>
         )}
+
+        {/* Logout Button */}
+        <button
+          onClick={handleLogout}
+          title="Logout"
+          className={cn(
+            "group flex items-center rounded-2xl text-sm font-semibold text-rose-500 hover:text-rose-600 hover:bg-rose-500/10 dark:hover:bg-rose-950/40 transition-all duration-200 relative",
+            isCollapsed ? "justify-center p-3 w-12 mx-auto" : "gap-3 px-4 py-2.5 w-full"
+          )}
+        >
+          <LogOut size={18} className="flex-shrink-0 transition-transform group-hover:-translate-x-0.5" />
+          {!isCollapsed && <span className="font-bold">Logout</span>}
+          {isCollapsed && (
+            <div className="absolute left-full ml-3 px-3 py-1.5 bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 rounded-xl text-xs font-extrabold whitespace-nowrap shadow-xl opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50">
+              Logout
+            </div>
+          )}
+        </button>
       </div>
     </aside>
   );

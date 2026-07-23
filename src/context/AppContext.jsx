@@ -2,12 +2,50 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useAuth } from './AuthContext';
 import { supabase } from '../lib/supabase';
 
+export const PLAN_LIMITS = {
+  free: { id: 'free', name: 'Free Plan', maxResumes: 2, badge: 'Free Tier', color: 'from-slate-600 to-slate-800' },
+  pro: { id: 'pro', name: 'Pro Plan', maxResumes: 5, badge: 'Pro Tier', color: 'from-blue-600 to-indigo-600' },
+  premium: { id: 'premium', name: 'Premium Plan', maxResumes: 10, badge: 'Premium Tier', color: 'from-amber-500 to-purple-600' }
+};
+
 const AppContext = createContext();
 
 export function AppProvider({ children }) {
   const { currentUser } = useAuth();
   
   const [theme, setTheme] = useState('dark');
+  
+  // 3-Tier Plan Management (free: 2, pro: 5, premium: 10)
+  const [userPlan, setUserPlanState] = useState(() => {
+    return localStorage.getItem('hireready_user_plan') || 'free';
+  });
+  const [resumesCount, setResumesCount] = useState(0);
+
+  const setUserPlan = (planKey) => {
+    if (PLAN_LIMITS[planKey]) {
+      setUserPlanState(planKey);
+      localStorage.setItem('hireready_user_plan', planKey);
+    }
+  };
+
+  const fetchResumesCount = async () => {
+    if (!currentUser?.id) {
+      setResumesCount(0);
+      return;
+    }
+    try {
+      const { count, error } = await supabase
+        .from('resumes')
+        .select('*', { count: 'exact', head: true })
+        .eq('user_id', currentUser.id);
+
+      if (!error && count !== null) {
+        setResumesCount(count);
+      }
+    } catch (e) {
+      console.error("Failed to fetch resume count", e);
+    }
+  };
   
   // Track raw IDs for legacy connections
   const [activeResumeId, setActiveResumeId] = useState(null);
@@ -25,8 +63,11 @@ export function AppProvider({ children }) {
         setActiveResumeDetails(null);
         setActiveJobId(null);
         setActiveJobDetails(null);
+        setResumesCount(0);
         return;
       }
+
+      fetchResumesCount();
 
       // 1. Unlinked Independent Fetch for Resumes
       try {
@@ -99,11 +140,19 @@ export function AppProvider({ children }) {
     });
   };
 
+  const activePlanInfo = PLAN_LIMITS[userPlan] || PLAN_LIMITS.free;
+
   return (
     <AppContext.Provider 
       value={{
         theme,
         toggleTheme,
+        userPlan,
+        setUserPlan,
+        resumesCount,
+        refreshResumesCount: fetchResumesCount,
+        activePlanInfo,
+        PLAN_LIMITS,
         activeResumeId,
         setActiveResumeId: updateActiveResume, 
         activeResumeDetails,
