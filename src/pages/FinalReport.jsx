@@ -151,40 +151,40 @@ export function FinalReport() {
                 
                 {/* Score Dial */}
                 <div className="flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-border/50 pb-8 md:pb-0 md:pr-8">
-                  <div className="relative w-56 h-56 flex items-center justify-center group mx-auto md:mx-0">
-                    <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-colors duration-700" />
-                    <svg className="w-full h-full transform -rotate-90 relative z-10 filter drop-shadow-[0_0_12px_rgba(99,102,241,0.3)]" viewBox="0 0 100 100">
+                  <div className="relative w-56 h-56 flex items-center justify-center p-3 rounded-full bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800/80 shadow-sm mx-auto md:mx-0">
+                    <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                       <defs>
-                        <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="var(--color-primary-500)" />
-                          <stop offset="100%" stopColor="var(--color-cyan-500)" />
+                        <linearGradient id="finalReportScoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#4f46e5" />
+                          <stop offset="50%" stopColor="#2563eb" />
+                          <stop offset="100%" stopColor="#06b6d4" />
                         </linearGradient>
                       </defs>
                       <circle
-                        className="text-surface-200 dark:text-surface-800/80 transition-colors"
-                        strokeWidth="10"
+                        className="text-slate-200 dark:text-slate-800"
+                        strokeWidth="8"
                         stroke="currentColor"
                         fill="transparent"
-                        r="42"
+                        r="40"
                         cx="50"
                         cy="50"
                       />
                       <circle
-                        className="transition-all duration-[1500ms] ease-[cubic-bezier(0.22,1,0.36,1)] drop-shadow-md"
-                        strokeWidth="10"
-                        strokeDasharray={264}
-                        strokeDashoffset={264 - (264 * report.overall_score) / 100}
+                        className="transition-all duration-[1500ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+                        strokeWidth="8"
+                        strokeDasharray={251.2}
+                        strokeDashoffset={251.2 - (251.2 * (report?.overall_score ?? 0)) / 100}
                         strokeLinecap="round"
-                        stroke="url(#scoreGradient)"
+                        stroke="url(#finalReportScoreGradient)"
                         fill="transparent"
-                        r="42"
+                        r="40"
                         cx="50"
                         cy="50"
                       />
                     </svg>
-                    <div className="absolute flex flex-col items-center justify-center text-center z-10 animate-in zoom-in duration-700 delay-300">
-                      <span className="text-5xl font-black text-foreground tracking-tight">{report?.overall_score ?? 0}%</span>
-                      <span className="text-[11px] text-muted-foreground font-bold uppercase tracking-[0.2em] mt-1">Holistic Match</span>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                      <span className="text-5xl font-black text-slate-900 dark:text-white tracking-tight">{report?.overall_score ?? 0}%</span>
+                      <span className="text-[11px] text-slate-500 dark:text-slate-400 font-extrabold uppercase tracking-[0.2em] mt-1">Holistic Match</span>
                     </div>
                   </div>
                   <div className="mt-6 text-center">
