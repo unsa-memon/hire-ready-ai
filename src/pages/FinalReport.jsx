@@ -183,7 +183,7 @@ export function FinalReport() {
                       />
                     </svg>
                     <div className="absolute flex flex-col items-center justify-center text-center z-10 animate-in zoom-in duration-700 delay-300">
-                      <span className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-foreground to-foreground/60">{report.overall_score}%</span>
+                      <span className="text-5xl font-black text-foreground tracking-tight">{report?.overall_score ?? 0}%</span>
                       <span className="text-[11px] text-muted-foreground font-bold uppercase tracking-[0.2em] mt-1">Holistic Match</span>
                     </div>
                   </div>
