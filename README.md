@@ -200,7 +200,8 @@ The table below documents the exact instructions and prompts engineered for each
 > *Note: Place your application screenshots into the `docs/screenshots/` directory using the filenames specified below.*
 
 ### 1. Landing Page
-![Landing Page](docs/screenshots/landing-page.png)
+<img width="1919" height="876" alt="image" src="https://github.com/user-attachments/assets/cd222d41-e9ce-4833-8848-67346355a156" />
+
 *Hero section highlighting HireReady AI's core capabilities, features showcase, and value proposition.*
 
 ### 2. Authentication (Login / Signup)
