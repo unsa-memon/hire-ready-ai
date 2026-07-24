@@ -317,31 +317,48 @@ export function CoverLetter() {
                 <div className="max-w-none text-slate-900 dark:text-slate-100 font-sans leading-relaxed relative z-10 selection:bg-indigo-500/20 space-y-5">
                   {(() => {
                     const text = report.content || "";
-                    const paragraphs = text
+                    const explicitParagraphs = text
                       .split(/\n\s*\n/)
                       .map(p => p.trim())
                       .filter(Boolean);
 
-                    if (paragraphs.length <= 1 && text.length > 250) {
-                      const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
-                      const chunked = [];
-                      let current = "";
-                      sentences.forEach((sentence, idx) => {
-                        current += sentence + " ";
-                        if (current.length > 220 || idx === sentences.length - 1) {
-                          chunked.push(current.trim());
-                          current = "";
-                        }
-                      });
-                      return chunked.map((para, i) => (
-                        <p key={i} className="text-base sm:text-lg leading-relaxed text-slate-800 dark:text-slate-200 font-normal">
+                    if (explicitParagraphs.length > 1) {
+                      return explicitParagraphs.map((para, idx) => (
+                        <p key={idx} className="text-base sm:text-lg leading-relaxed text-slate-800 dark:text-slate-200 font-normal whitespace-pre-line">
                           {para}
                         </p>
                       ));
                     }
 
-                    return paragraphs.map((para, idx) => (
-                      <p key={idx} className="text-base sm:text-lg leading-relaxed text-slate-800 dark:text-slate-200 font-normal whitespace-pre-line">
+                    // Protect technical terms (Node.js, Express.js, React.js, e.g., i.e.) from splitting on periods
+                    const protectedText = text
+                      .replace(/\b([a-zA-Z0-9_-]+)\.(js|ts|py|net|io|org|com|ai|dev|app|sh)\b/gi, '$1__DOT__$2')
+                      .replace(/\b(e\.g|i\.e|vs|dr|mr|mrs|ms|prof)\./gi, '$1__DOT__');
+
+                    const rawSentences = protectedText.split(/(?<=[.!?])\s+(?=[A-Z])/g);
+                    const sentences = rawSentences.map(s => s.replace(/__DOT__/g, '.').trim()).filter(Boolean);
+
+                    if (sentences.length <= 1) {
+                      return (
+                        <p className="text-base sm:text-lg leading-relaxed text-slate-800 dark:text-slate-200 font-normal">
+                          {text.trim()}
+                        </p>
+                      );
+                    }
+
+                    const paragraphs = [];
+                    let currentChunk = "";
+
+                    sentences.forEach((sentence, idx) => {
+                      currentChunk += (currentChunk ? " " : "") + sentence;
+                      if (currentChunk.length >= 240 || idx === sentences.length - 1) {
+                        paragraphs.push(currentChunk.trim());
+                        currentChunk = "";
+                      }
+                    });
+
+                    return paragraphs.map((para, i) => (
+                      <p key={i} className="text-base sm:text-lg leading-relaxed text-slate-800 dark:text-slate-200 font-normal">
                         {para}
                       </p>
                     ));

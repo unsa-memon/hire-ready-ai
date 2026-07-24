@@ -101,31 +101,49 @@ export function FinalReport() {
 
   const renderEvaluationThesis = (summaryText) => {
     if (!summaryText) return null;
-    const paragraphs = summaryText
+
+    const explicitParagraphs = summaryText
       .split(/\n\s*\n/)
       .map(p => p.trim())
       .filter(Boolean);
 
-    if (paragraphs.length <= 1 && summaryText.length > 200) {
-      const sentences = summaryText.match(/[^.!?]+[.!?]+/g) || [summaryText];
-      const chunked = [];
-      let current = "";
-      sentences.forEach((sentence, idx) => {
-        current += sentence + " ";
-        if (current.length > 220 || idx === sentences.length - 1) {
-          chunked.push(current.trim());
-          current = "";
-        }
-      });
-      return chunked.map((para, i) => (
-        <p key={i} className="text-base sm:text-lg leading-relaxed text-slate-800 dark:text-slate-200 font-normal">
+    if (explicitParagraphs.length > 1) {
+      return explicitParagraphs.map((para, idx) => (
+        <p key={idx} className="text-base sm:text-lg leading-relaxed text-slate-800 dark:text-slate-200 font-normal whitespace-pre-line">
           {para}
         </p>
       ));
     }
 
-    return paragraphs.map((para, idx) => (
-      <p key={idx} className="text-base sm:text-lg leading-relaxed text-slate-800 dark:text-slate-200 font-normal">
+    // Protect technical terms (Node.js, Express.js, React.js, e.g., i.e.) from splitting on periods
+    const protectedText = summaryText
+      .replace(/\b([a-zA-Z0-9_-]+)\.(js|ts|py|net|io|org|com|ai|dev|app|sh)\b/gi, '$1__DOT__$2')
+      .replace(/\b(e\.g|i\.e|vs|dr|mr|mrs|ms|prof)\./gi, '$1__DOT__');
+
+    const rawSentences = protectedText.split(/(?<=[.!?])\s+(?=[A-Z])/g);
+    const sentences = rawSentences.map(s => s.replace(/__DOT__/g, '.').trim()).filter(Boolean);
+
+    if (sentences.length <= 1) {
+      return (
+        <p className="text-base sm:text-lg leading-relaxed text-slate-800 dark:text-slate-200 font-normal">
+          {summaryText.trim()}
+        </p>
+      );
+    }
+
+    const paragraphs = [];
+    let currentChunk = "";
+
+    sentences.forEach((sentence, idx) => {
+      currentChunk += (currentChunk ? " " : "") + sentence;
+      if (currentChunk.length >= 240 || idx === sentences.length - 1) {
+        paragraphs.push(currentChunk.trim());
+        currentChunk = "";
+      }
+    });
+
+    return paragraphs.map((para, i) => (
+      <p key={i} className="text-base sm:text-lg leading-relaxed text-slate-800 dark:text-slate-200 font-normal">
         {para}
       </p>
     ));
