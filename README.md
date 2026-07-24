@@ -241,7 +241,13 @@ The table below documents the exact instructions and prompts engineered for each
 
 **Custom cover letter generator with multi-tone selection, instant preview, and export controls.**
 
-### 9. Executive Summary Report
+### 9. AI Interview Coach
+<img width="1919" height="879" alt="image" src="https://github.com/user-attachments/assets/eed3d851-a9be-4c7d-b8af-39dc1f3dcf43" />
+<img width="1911" height="876" alt="image" src="https://github.com/user-attachments/assets/7b37b6c3-4328-42da-96fc-be0a9e7541c7" />
+
+**Interactive AI interview coach featuring personalized questions, instant evaluation, confidence scoring, and tailored feedback to maximize interview success.**
+
+### 10. Executive Summary Report
 <img width="1910" height="874" alt="image" src="https://github.com/user-attachments/assets/8d1ee181-ac38-45e4-99e2-fe207548d591" />
 
 **Holistic match score gauge and executive summary report.**
