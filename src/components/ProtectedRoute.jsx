@@ -14,7 +14,7 @@ export function ProtectedRoute({ children }) {
           <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-white animate-pulse">
             <Target size={24} className="animate-spin-slow" />
           </div>
-          <p className="text-foreground/70 font-medium animate-pulse">Loading HireReady AI...</p>
+          <p className="text-foreground/70 font-medium animate-pulse">Loading CareerBeam AI...</p>
         </div>
       </div>
     );

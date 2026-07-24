@@ -98,10 +98,10 @@ export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = f
           {!isCollapsed && (
             <div className="flex flex-col leading-tight whitespace-nowrap transition-opacity duration-300">
               <span className="text-lg font-extrabold tracking-tight text-foreground">
-                HireReady AI
+                CareerBeam AI
               </span>
               <span className="text-[10px] font-extrabold tracking-[0.18em] text-blue-600 dark:text-blue-400">
-                AI CAREER ENGINE
+                YOUR AI-POWERED CAREER ACCELERATOR
               </span>
             </div>
           )}

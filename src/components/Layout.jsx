@@ -6,7 +6,7 @@ import { Sidebar } from './Sidebar';
 export function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(() => {
-    return localStorage.getItem('hireready_sidebar_collapsed') === 'true';
+    return (localStorage.getItem('careerbeam_sidebar_collapsed') || localStorage.getItem('hireready_sidebar_collapsed')) === 'true';
   });
 
   const location = useLocation();
@@ -18,7 +18,7 @@ export function Layout() {
   const toggleCollapse = () => {
     setIsCollapsed(prev => {
       const next = !prev;
-      localStorage.setItem('hireready_sidebar_collapsed', String(next));
+      localStorage.setItem('careerbeam_sidebar_collapsed', String(next));
       return next;
     });
   };

@@ -106,7 +106,7 @@ export function Navbar({ onMenuToggle }) {
               whitespace-nowrap
               "
             >
-              HireReady AI
+              CareerBeam AI
             </span>
 
             <span 
@@ -120,7 +120,7 @@ export function Navbar({ onMenuToggle }) {
               hidden md:block
               "
             >
-              Your AI-Powered Career Assistant
+              Your AI-Powered Career Accelerator
             </span>
           </div>
         </Link>

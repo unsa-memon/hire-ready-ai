@@ -1,14 +1,14 @@
-# HireReady AI — Next-Gen AI Career Engine
+# CareerBeam AI — Your AI-Powered Career Accelerator
 
 [![Live Application](https://img.shields.io/badge/Live_App-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://hire-ready-ai-rose.vercel.app/)
-[![React](https://img.shields.io/badge/React-18.x-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![React](https://img.shields.io/badge/React-19.x-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-6.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Supabase](https://img.shields.io/badge/Supabase-Database_%26_Auth-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
 [![Google Gemini API](https://img.shields.io/badge/Google_Gemini-2.5_Flash-4285F4?style=for-the-badge&logo=googlegemini&logoColor=white)](https://ai.google.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-> **HireReady AI** is an end-to-end, AI-powered career optimization platform designed to bridge the gap between job seekers and Applicant Tracking Systems (ATS). Powered by Google Gemini AI and Supabase, HireReady AI shreds resume PDFs, compares them against target job descriptions, computes ATS compatibility scores, identifies skill gaps, crafts tailored cover letters, provides an interactive mock interview coach, and compiles executive matching reports.
+> **CareerBeam AI** is an intelligent, end-to-end career acceleration platform that empowers job seekers through Artificial Intelligence. Rather than offering a single resume-checking tool, CareerBeam AI brings every essential stage of the job application journey into one seamless platform. Users can analyze resumes, measure ATS compatibility, identify skill gaps, generate personalized cover letters, follow AI-generated learning roadmaps, practice mock interviews, and receive comprehensive career reports—all powered by intelligent, context-aware AI assistance. Built with modern web technologies and AI integration, CareerBeam AI helps candidates prepare smarter, improve faster, and approach every job opportunity with confidence.
 
 🔗 **Live Production URL**: [https://hire-ready-ai-rose.vercel.app/](https://hire-ready-ai-rose.vercel.app/)
 
@@ -42,8 +42,8 @@ Modern hiring relies heavily on automated **Applicant Tracking Systems (ATS)** t
 3. **Skill Blindspots**: Difficulty identifying exact technical or soft skill gaps required for a dream role.
 4. **Interview Unpreparedness**: Lack of personalized, role-specific interview coaching and feedback.
 
-### The Solution: HireReady AI
-HireReady AI acts as a personal AI career strategist. By ingesting a candidate's resume PDF and a target job description, it leverages Google Gemini AI to analyze application competitiveness, optimize terminology for ATS algorithms, map out step-by-step learning roadmaps, generate customized cover letters, and evaluate mock interview performance in real time.
+### The Solution: CareerBeam AI
+CareerBeam AI acts as a personal AI career strategist. By ingesting a candidate's resume PDF and a target job description, it leverages Google Gemini AI to analyze application competitiveness, optimize terminology for ATS algorithms, map out step-by-step learning roadmaps, generate customized cover letters, and evaluate mock interview performance in real time.
 
 ---
 
@@ -59,7 +59,7 @@ HireReady AI acts as a personal AI career strategist. By ingesting a candidate's
 
 ## 🔄 Application Architecture & Workflow
 
-HireReady AI uses a modern client-heavy architecture backed by Supabase for authentication and relational storage, alongside Google Gemini 2.5 Flash for high-speed generative intelligence.
+CareerBeam AI uses a modern client-heavy architecture backed by Supabase for authentication and relational storage, alongside Google Gemini 2.5 Flash for high-speed generative intelligence.
 
 ```mermaid
 flowchart TD
@@ -98,25 +98,25 @@ flowchart TD
 - Stores targeted job descriptions dynamically linked with the candidate's active profile and resume.
 
 ### 4. 🧠 AI Resume Analysis (Strengths & Weaknesses)
-- Evaluates resume structure, impact metrics, action verbs, and formatting readability.
-- Highlights concrete strengths and actionable weaknesses.
+- Evaluates raw resume text against target job descriptions to extract high-impact strengths and specific weaknesses.
 
-### 5. 🎯 AI ATS Compatibility Score & Keyword shredded gap
-- Calculates precise numerical match percentage (0–100%).
-- Categorizes **Matching Keywords** (present in resume) and **Missing Keywords** (required by job posting).
+### 5. 🎯 ATS Compatibility Score & Keyword Analyzer
+- Calculates an aggregate ATS match score percentage (0–100%).
+- Extracts exact matching keywords present in both resume and job requirements.
+- Identifies critical missing keywords to optimize resume visibility for ATS algorithms.
 
-### 6. 🗺️ AI Skill Gap Analysis & Learning Roadmap
-- Identifies critical technical & soft skill deficiencies.
-- Builds a step-by-step, actionable career learning plan.
+### 6. 🗺️ Skill Gap Analysis & Practical Action Roadmap
+- Contrasts resume candidate profile against target job role requirements.
+- Identifies missing technical and soft skills.
+- Generates a 3-step practical roadmap featuring learning phases, tasks, portfolio project ideas, estimated completion times, and impact levels.
 
-### 7. ✍️ AI Tailored Cover Letter Generator
-- Crafts customized, professional cover letters tailored to the candidate's experience and target job requirements.
-- Multiple tone options (Professional, Enthusiastic, Executive).
-- One-click copy to clipboard and `.txt` file export.
+### 7. ✉️ Personalized AI Cover Letter Generator
+- Crafts tailored, modern SaaS-tier cover letters leveraging quantifiable resume achievements under 350 words.
+- Enforces custom user personalization directives on demand.
 
-### 8. 🎙️ AI Interactive Mock Interview Coach
-- Generates role-specific behavioral and technical interview questions based on the candidate's exact resume and job description.
-- Evaluates user answers and delivers instant constructive feedback with score ratings.
+### 8. 🎙️ Interactive Mock Interview Coach & Evaluation
+- Generates 10 targeted interview questions (Technical, STAR Behavioral, System Architecture, Team Collaboration).
+- Evaluates candidate responses using the STAR method, rating clarity and relevance on a scale of 0 to 100 with actionable feedback.
 
 ### 9. 🏆 Executive Summary & Holistic Match Report
 - Computes an aggregate competitive heuristic score displayed in a high-contrast circular score gauge.
@@ -135,7 +135,7 @@ flowchart TD
 
 ## 🤖 AI Feature & System Prompts
 
-> **HireReady AI uses carefully designed AI prompts to power its intelligent features. Each feature is guided by task-specific instructions to deliver accurate, relevant, and context-aware responses throughout the job application process.**
+> **CareerBeam AI uses carefully designed AI prompts to power its intelligent features. Each feature is guided by task-specific instructions to deliver accurate, relevant, and context-aware responses throughout the job application process.**
 
 | AI Feature | AI Purpose & Instruction Prompt |
 | :--- | :--- |
@@ -155,7 +155,7 @@ flowchart TD
 ### 1. Landing Page
 <img width="1919" height="876" alt="image" src="https://github.com/user-attachments/assets/cd222d41-e9ce-4833-8848-67346355a156" />
 
-**Hero section highlighting HireReady AI's core capabilities, features showcase, and value proposition.**
+**Hero section highlighting CareerBeam AI's core capabilities, features showcase, and value proposition.**
 
 ### 2. Authentication (Login / Signup)
 <img width="1918" height="870" alt="image" src="https://github.com/user-attachments/assets/9279638a-dc6c-4d27-985c-963c62a11053" />
@@ -211,9 +211,9 @@ flowchart TD
 
 | Component | Technology | Description |
 | :--- | :--- | :--- |
-| **Frontend Framework** | **React 18 + Vite 5** | Single Page Application with fast HMR and optimized production bundling. |
-| **Styling & Icons** | **Tailwind CSS 3 + Lucide React** | Responsive design system supporting dark/light theme modes and glassmorphism UI. |
-| **Routing & State** | **React Router DOM 6 + Context API** | SPA routing with global `AppContext` for active resume/job state management. |
+| **Frontend Framework** | **React 19 + Vite 6** | Single Page Application with fast HMR and optimized production bundling. |
+| **Styling & Icons** | **Tailwind CSS 4 + Lucide React** | Responsive design system supporting dark/light theme modes and glassmorphism UI. |
+| **Routing & State** | **React Router DOM 7 + Context API** | SPA routing with global `AppContext` for active resume/job state management. |
 | **Backend & Auth** | **Supabase (PostgreSQL + Auth)** | User authentication, row-level security, and activity logging database. |
 | **Cloud Storage** | **Supabase Storage** | Secure storage bucket for resume PDF files. |
 | **AI / Machine Learning** | **Google Gemini 2.5 Flash** | Advanced GenAI SDK (`@google/genai`) for structured analysis & content generation. |
@@ -224,7 +224,7 @@ flowchart TD
 
 ## 💻 Installation & Local Setup
 
-Follow these steps to run HireReady AI locally on your computer:
+Follow these steps to run CareerBeam AI locally on your computer:
 
 ### Prerequisites
 - **Node.js**: v18.0.0 or higher
@@ -235,8 +235,8 @@ Follow these steps to run HireReady AI locally on your computer:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/unsa-memon/hire-ready-ai.git
-   cd hire-ready-ai
+   git clone https://github.com/unsa-memon/careerbeam-ai.git
+   cd careerbeam-ai
    ```
 
 2. **Install Dependencies**:
@@ -280,7 +280,7 @@ VITE_GEMINI_API_KEY=your-google-gemini-api-key-here
 ## 📂 Project Directory Structure
 
 ```text
-hire-ready-ai/
+careerbeam-ai/
 ├── public/                     # Static assets (favicon, logos)
 ├── src/
 │   ├── components/             # Reusable UI components & layouts
@@ -369,7 +369,7 @@ hire-ready-ai/
 
 **Author**: Unsa Memon  
 **Live Project**: [https://hire-ready-ai-rose.vercel.app/](https://hire-ready-ai-rose.vercel.app/)  
-**GitHub Repository**: [https://github.com/unsa-memon/hire-ready-ai](https://github.com/unsa-memon/hire-ready-ai)
+**GitHub Repository**: [https://github.com/unsa-memon/careerbeam-ai](https://github.com/unsa-memon/careerbeam-ai)
 
 ### License
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.

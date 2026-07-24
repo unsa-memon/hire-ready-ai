@@ -86,12 +86,12 @@ export function FinalReport() {
   const handleDownload = () => {
     if (!report) return;
     const blob = new Blob([
-      `HIRE READY AI - EXECUTIVE SUMMARY\n--------------------------------\n\nScore: ${report.overall_score}%\n\nSummary:\n${report.summary}`
+      `CAREERBEAM AI - EXECUTIVE SUMMARY\n--------------------------------\n\nScore: ${report.overall_score}%\n\nSummary:\n${report.summary}`
     ], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `HireReady_FinalReport_${activeResumeDetails?.file_name || 'Output'}.txt`;
+    link.download = `CareerBeam_FinalReport_${activeResumeDetails?.file_name || 'Output'}.txt`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

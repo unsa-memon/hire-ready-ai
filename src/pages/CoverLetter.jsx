@@ -297,7 +297,7 @@ export function CoverLetter() {
               
               <div className="px-8 sm:px-14 pb-6 pt-4 flex flex-col sm:flex-row justify-between items-center border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 font-bold gap-3">
                 <span className="flex items-center gap-2">
-                  <PenTool size={14} className="text-indigo-600 dark:text-indigo-400" /> Synthesized via HireReady AI LLM Engine
+                  <PenTool size={14} className="text-indigo-600 dark:text-indigo-400" /> Synthesized via CareerBeam AI LLM Engine
                 </span>
                 
                 {!showCustomBox && (

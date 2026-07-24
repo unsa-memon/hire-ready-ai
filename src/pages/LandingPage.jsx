@@ -83,7 +83,7 @@ export function LandingPage() {
       iconBg: "bg-emerald-600/20 text-emerald-700 dark:text-emerald-300 border-emerald-400/30"
     },
     {
-      value: "HireReady AI Engine",
+      value: "CareerBeam AI Engine",
       label: "Instant Real-Time Parsing",
       icon: Brain,
       cardBg: "bg-gradient-to-br from-purple-100/90 via-slate-100/95 to-fuchsia-100/80 dark:from-slate-900/95 dark:via-purple-950/40 dark:to-slate-900/90 border border-purple-300/80 dark:border-purple-700/60 shadow-[0_10px_30px_rgba(168,85,247,0.15)]",
@@ -102,7 +102,7 @@ export function LandingPage() {
     {
       name: "Sarah Johnson",
       role: "Frontend Developer at Google",
-      content: "HireReady AI gave me exact ATS feedback and skill gap roadmaps that doubled my interview response rates!",
+      content: "CareerBeam AI gave me exact ATS feedback and skill gap roadmaps that doubled my interview response rates!",
       cardBg: "bg-gradient-to-br from-emerald-50/90 via-white/95 to-slate-50/90 dark:from-slate-900/90 dark:via-emerald-950/30 dark:to-slate-900/90 border-emerald-200/90 dark:border-emerald-700/50"
     },
     {
@@ -129,10 +129,10 @@ export function LandingPage() {
           </div>
           <div className="flex flex-col leading-tight min-w-0">
             <span className="font-extrabold text-sm sm:text-lg text-slate-900 dark:text-white tracking-tight whitespace-nowrap">
-              HireReady AI
+              CareerBeam AI
             </span>
             <span className="text-[10px] font-extrabold tracking-wider uppercase text-blue-600 dark:text-blue-400 hidden md:block">
-              Your AI-Powered Career Assistant
+              Your AI-Powered Career Accelerator
             </span>
           </div>
         </div>
@@ -159,7 +159,7 @@ export function LandingPage() {
           <div className="relative z-10 text-center max-w-4xl mx-auto space-y-7">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 dark:bg-slate-800/60 backdrop-blur-md border border-indigo-200/60 dark:border-indigo-800/60 shadow-xs text-xs font-black uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
               <Sparkles size={16} className="text-indigo-600 dark:text-indigo-400" />
-              Your AI-Powered Career Engine
+              Accelerating Careers with Intelligent AI
             </div>
 
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.12]">
@@ -170,7 +170,7 @@ export function LandingPage() {
             </h1>
 
             <p className="text-base sm:text-xl text-slate-700 dark:text-slate-300 font-bold max-w-xl mx-auto leading-relaxed">
-              Analyze resumes, match ATS job scores, uncover skill gaps, and master technical interviews with HireReady AI.
+              Analyze resumes, match ATS job scores, uncover skill gaps, and master technical interviews with CareerBeam AI.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 pt-2">
@@ -226,7 +226,7 @@ export function LandingPage() {
                 Everything You Need to Get Hired
               </h2>
               <p className="text-slate-600 dark:text-slate-400 text-base font-semibold">
-                An all-in-one AI career engine designed to optimize every stage of your job application journey.
+                An all-in-one AI career accelerator designed to optimize every stage of your job application journey.
               </p>
             </div>
 
@@ -336,7 +336,7 @@ export function LandingPage() {
 
       <footer className="py-8 text-center border-t border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80">
         <p className="text-xs font-bold text-slate-600 dark:text-slate-400">
-          © 2026 HireReady AI — Your AI-Powered Career Assistant. All rights reserved.
+          © 2026 CareerBeam AI — Your AI-Powered Career Accelerator. All rights reserved.
         </p>
       </footer>
     </div>

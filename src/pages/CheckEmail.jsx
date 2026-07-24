@@ -40,7 +40,7 @@ export function CheckEmail() {
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-white">
               <Target size={24} />
             </div>
-            HireReady AI
+            CareerBeam AI
           </Link>
         </div>
         

@@ -17,14 +17,14 @@ export function AppProvider({ children }) {
   
   // 3-Tier Plan Management (free: 2, pro: 5, premium: 10)
   const [userPlan, setUserPlanState] = useState(() => {
-    return localStorage.getItem('hireready_user_plan') || 'free';
+    return localStorage.getItem('careerbeam_user_plan') || localStorage.getItem('hireready_user_plan') || 'free';
   });
   const [resumesCount, setResumesCount] = useState(0);
 
   const setUserPlan = (planKey) => {
     if (PLAN_LIMITS[planKey]) {
       setUserPlanState(planKey);
-      localStorage.setItem('hireready_user_plan', planKey);
+      localStorage.setItem('careerbeam_user_plan', planKey);
     }
   };
 

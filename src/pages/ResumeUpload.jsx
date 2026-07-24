@@ -177,7 +177,7 @@ export function ResumeUpload() {
               Resume Active & Ready
             </h3>
             <p className="text-slate-700 dark:text-slate-300 text-sm font-semibold">
-              Your resume is currently linked to your HireReady AI profile and ready for multi-layered analysis.
+              Your resume is currently linked to your CareerBeam AI profile and ready for multi-layered analysis.
             </p>
 
             {/* Metadata Box */}
