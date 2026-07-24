@@ -90,8 +90,8 @@ export function Navbar({ onMenuToggle }) {
             flex-shrink-0
             "
           >
-            <span className="font-black text-base sm:text-lg">
-              H
+            <span className="font-black text-xs sm:text-sm tracking-tighter">
+              CB
             </span>
           </div>
 
