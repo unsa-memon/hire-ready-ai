@@ -101,7 +101,7 @@ export function Sidebar({ isCollapsed = false, onToggle, className, isMobile = f
                 CareerBeam AI
               </span>
               <span className="text-[10px] font-extrabold tracking-[0.18em] text-blue-600 dark:text-blue-400">
-                YOUR AI-POWERED CAREER ACCELERATOR
+                AI CAREER ENGINE
               </span>
             </div>
           )}
