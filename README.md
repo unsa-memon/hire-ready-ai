@@ -150,58 +150,60 @@ flowchart TD
 
 ## 📸 UI Screenshots
 
-> *Note: Place your application screenshots into the `docs/screenshots/` directory using the filenames specified below.*
-
 ### 1. Landing Page
-<img width="1919" height="876" alt="image" src="https://github.com/user-attachments/assets/cd222d41-e9ce-4833-8848-67346355a156" />
+<img width="1919" height="871" alt="image" src="https://github.com/user-attachments/assets/57aa5f27-22fd-406a-968a-3fe34e9f13a9" />
 
 **Hero section highlighting CareerBeam AI's core capabilities, features showcase, and value proposition.**
 
 ### 2. Authentication (Login / Signup)
-<img width="1918" height="870" alt="image" src="https://github.com/user-attachments/assets/9279638a-dc6c-4d27-985c-963c62a11053" />
-<img width="1916" height="869" alt="image" src="https://github.com/user-attachments/assets/f6a601c6-2b68-4506-8a06-68d3af71a833" />
-<img width="1915" height="870" alt="image" src="https://github.com/user-attachments/assets/3138f68e-f5fa-4690-b490-ca927b9e5f2d" />
+<img width="1918" height="871" alt="image" src="https://github.com/user-attachments/assets/cd0c1756-4d63-4988-b02c-cf1929cedb52" />
+<img width="1919" height="867" alt="image" src="https://github.com/user-attachments/assets/54404427-7338-4e38-9a79-2b02eecef78c" />
+<img width="1919" height="874" alt="image" src="https://github.com/user-attachments/assets/eeff1254-5d60-4f41-bb0f-9ad31f717f1d" />
 
 **Secure email and password authentication powered by Supabase Auth.**
 
 ### 3. Dashboard
-<img width="1919" height="867" alt="image" src="https://github.com/user-attachments/assets/f4bb4fe8-a248-4408-b2fb-9912b543fc80" />
+<img width="1917" height="874" alt="image" src="https://github.com/user-attachments/assets/30101f8e-3221-4122-b1b2-6c905153304e" />
 
 **Overview of active resume, target job description, recent activity stream, and quick module actions.**
 
 ### 4. Resume Upload and Job Description
-<img width="1917" height="877" alt="image" src="https://github.com/user-attachments/assets/73fbc91f-fc20-4e7e-a18f-1c7bf9d2b505" /> <img width="1914" height="888" alt="image" src="https://github.com/user-attachments/assets/016a1ec4-56c8-4eaa-8af1-bc8289bf34b8" />
+<img width="1918" height="869" alt="image" src="https://github.com/user-attachments/assets/aa0fd14e-e87f-4fbd-914f-34f4d457b440" />
+<img width="1917" height="875" alt="image" src="https://github.com/user-attachments/assets/55bf8cb4-7a7a-4690-9f88-4e1893155116" />
 
 **Drag-and-drop PDF resume upload with in-browser text extraction and job description saving.**
 
 ### 5. Resume Analysis
-<img width="1912" height="870" alt="image" src="https://github.com/user-attachments/assets/8204a753-5e4b-4c27-b581-e9a64b39bc6c" />
+<img width="1919" height="874" alt="image" src="https://github.com/user-attachments/assets/13dfd39c-3a63-423d-af7a-3ae942ca3782" />
 
 **AI-driven structural analysis breaking down resume strengths and weaknesses.**
 
 ### 6. ATS Compatibility Matching
-<img width="1913" height="872" alt="image" src="https://github.com/user-attachments/assets/893d8997-06f3-4595-81f0-43e1e1ceba75" />
+<img width="1919" height="873" alt="image" src="https://github.com/user-attachments/assets/6936f91a-a0a0-41a0-a652-ce057d89489f" />
 
 **ATS compatibility gauge displaying percentage score, matching keywords, and missing keywords.**
 
 ### 7. Skill Gap & Learning Roadmap
-<img width="1919" height="836" alt="image" src="https://github.com/user-attachments/assets/8e73b44c-7483-437f-b16f-8250363bd6e8" /> <img width="1323" height="868" alt="image" src="https://github.com/user-attachments/assets/13fa2efd-b045-41af-aff8-346b95a2d425" />
+<img width="1919" height="865" alt="image" src="https://github.com/user-attachments/assets/11e8d096-756b-4101-9c2d-4a9511bdbd2d" />
+<img width="1660" height="875" alt="image" src="https://github.com/user-attachments/assets/357c1252-bf18-47bc-8be3-a83a3897bfb6" />
 
 **Intelligent AI skill gap detection that compares your resume against target job requirements and generates a personalized learning roadmap with actionable recommendations to strengthen your profile.**
 
 ### 8. Cover Letter Generator
-<img width="1919" height="879" alt="image" src="https://github.com/user-attachments/assets/d4ed249d-85cf-4806-91ac-6a58ddab0cba" /> <img width="993" height="860" alt="image" src="https://github.com/user-attachments/assets/220ba041-4084-4d12-b024-e3b76fc3cf5f" />
+<img width="1917" height="876" alt="image" src="https://github.com/user-attachments/assets/cc42d870-de6f-47b2-bd71-cf288b7459f5" />
+<img width="1656" height="865" alt="image" src="https://github.com/user-attachments/assets/ec0671d8-2a56-4cc7-9f54-5d7b2e528c0a" />
+
 
 **Custom cover letter generator with multi-tone selection, instant preview, and export controls.**
 
 ### 9. AI Interview Coach
-<img width="1919" height="879" alt="image" src="https://github.com/user-attachments/assets/eed3d851-a9be-4c7d-b8af-39dc1f3dcf43" />
-<img width="1911" height="876" alt="image" src="https://github.com/user-attachments/assets/7b37b6c3-4328-42da-96fc-be0a9e7541c7" />
+<img width="1919" height="876" alt="image" src="https://github.com/user-attachments/assets/e07e6a62-edf5-4d2e-b3a9-75fbed8eecf1" />
+<img width="1919" height="878" alt="image" src="https://github.com/user-attachments/assets/dd1357e9-019b-4324-90db-5a856e95672f" />
 
 **Interactive AI interview coach featuring personalized questions, instant evaluation, confidence scoring, and tailored feedback to maximize interview success.**
 
 ### 10. Executive Summary Report
-<img width="1910" height="874" alt="image" src="https://github.com/user-attachments/assets/8d1ee181-ac38-45e4-99e2-fe207548d591" />
+<img width="1919" height="870" alt="image" src="https://github.com/user-attachments/assets/93aefc2a-1c62-4fe6-86c1-60b57e22789b" />
 
 **Holistic match score gauge and executive summary report.**
 
@@ -361,7 +363,6 @@ careerbeam-ai/
 - [ ] **Voice-Driven Mock Interviews**: Integrate WebRTC and Web Speech API for real-time vocal mock interview practice.
 - [ ] **Automated LinkedIn Profile Optimizer**: Extend Gemini analysis to optimize LinkedIn headlines, summaries, and experience sections.
 - [ ] **Live Job Board Integration**: Fetch live job postings directly from API providers (LinkedIn, Indeed) to auto-populate job descriptions.
-- [ ] **Export to PDF/Word**: Generate downloadable `.pdf` and `.docx` formatted resumes and cover letters directly.
 
 ---
 
