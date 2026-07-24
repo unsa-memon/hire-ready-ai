@@ -185,15 +185,29 @@ export async function generateSkillGap(resumeText, jobDescriptionText) {
  * 4. Cover Letter
  */
 export async function generateCoverLetter(resumeText, jobDescriptionText, applicantName, customRequirements = "") {
-    const prompt = `Write a compelling, professional, modern SaaS-tier cover letter targeted towards this exact job position leveraging the historical experience proven in the resume. 
-    It should sound human, punchy, explicitly noting impactful quantifiable achievements if they exist in the resume. Keep it under 350 words.
-    ${customRequirements ? `\n\nCRITICAL USER PERSONALIZATION DIRECTIVES (Enforce these strictly):\n${customRequirements}\n` : ''}
+    const prompt = `You are an elite career strategist writing an exceptional, tailored cover letter.
+    Craft a compelling, highly professional, executive-level cover letter targeted specifically towards this job position using the candidate's actual resume experience.
 
-    Return strictly JSON with 'content' mapping to the full string.
+    CRITICAL FORMATTING & STRUCTURE RULES:
+    1. SEPARATE EVERY SECTION WITH EXACTLY TWO NEWLINES (\n\n). NEVER merge paragraphs into a solid block of text.
+    2. Start with a proper professional salutation: "Dear Hiring Team," or "Dear Hiring Manager,"
+    3. Paragraph 1 (The Hook): A strong opening expressing enthusiasm for the target role, highlighting core candidate background, education, or immediate value fit.
+    4. Paragraph 2 (Core Achievements & Technical Mastery): Highlight 2-3 specific technical skills (frameworks, databases, AI tools, tools mentioned in resume) and quantifiable accomplishments from the resume that directly match the job requirements.
+    5. Paragraph 3 (Problem-Solving & Culture Fit): Emphasize problem-solving ability, code quality, developer workflow efficiency, and genuine passion for contributing to the company's team goals.
+    6. Paragraph 4 (Closing & Interview Request): A confident, polite closing statement requesting an opportunity to discuss alignment in an interview.
+    7. Professional Sign-off: Finish with "Sincerely,\n\n${applicantName}"
+
+    TONE & STYLE:
+    - Human, punchy, articulate, and persuasive. Avoid robotic cliché phrasing.
+    - Word count: 250 - 350 words total.
+    ${customRequirements ? `\nCRITICAL USER DIRECTIVES (Enforce strictly):\n${customRequirements}\n` : ''}
+
+    Return strictly JSON matching this schema:
+    { "content": "Full cover letter text formatted with \\n\\n between paragraphs" }
 
     Applicant Name: ${applicantName}
-    Resume: ${resumeText}
-    Job: ${jobDescriptionText}`;
+    Resume Text: ${resumeText}
+    Target Job Description: ${jobDescriptionText}`;
 
     return generateSafeContent(prompt, {
         type: Type.OBJECT,

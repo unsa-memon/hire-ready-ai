@@ -199,28 +199,35 @@ export function CoverLetter() {
               <span className="text-xs font-black text-slate-400 dark:text-slate-500 mr-1">Quick Directives:</span>
               <button 
                 type="button" 
-                onClick={() => addPresetTag("Emphasize technical leadership & team management")} 
+                onClick={() => addPresetTag("Separate into 4 distinct well-spaced paragraphs: opening hook, technical accomplishments, problem-solving fit, and polite interview closing")} 
                 className="text-xs font-extrabold px-3 py-1.5 rounded-full bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-300/40 hover:bg-indigo-500/20 transition-colors"
               >
-                ⚡ Leadership Focus
+                ✨ Clear Paragraph Layout
               </button>
               <button 
                 type="button" 
-                onClick={() => addPresetTag("Highlight quantifiable achievements & metrics")} 
+                onClick={() => addPresetTag("Emphasize technical leadership & team management")} 
+                className="text-xs font-extrabold px-3 py-1.5 rounded-full bg-blue-500/10 text-blue-700 dark:text-blue-300 border border-blue-300/40 hover:bg-blue-500/20 transition-colors"
+              >
+                ⚡ Technical Leadership
+              </button>
+              <button 
+                type="button" 
+                onClick={() => addPresetTag("Highlight quantifiable achievements, metrics, and measurable impacts")} 
                 className="text-xs font-extrabold px-3 py-1.5 rounded-full bg-purple-500/10 text-purple-700 dark:text-purple-300 border border-purple-300/40 hover:bg-purple-500/20 transition-colors"
               >
                 📊 Highlight Metrics
               </button>
               <button 
                 type="button" 
-                onClick={() => addPresetTag("Use a formal, executive tone")} 
+                onClick={() => addPresetTag("Use a formal, executive, high-impact tone")} 
                 className="text-xs font-extrabold px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40 hover:bg-emerald-500/20 transition-colors"
               >
                 💼 Executive Tone
               </button>
               <button 
                 type="button" 
-                onClick={() => addPresetTag("Express strong enthusiasm for company culture")} 
+                onClick={() => addPresetTag("Express strong enthusiasm for company culture and modern developer tooling")} 
                 className="text-xs font-extrabold px-3 py-1.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-300/40 hover:bg-amber-500/20 transition-colors"
               >
                 🚀 High Enthusiasm
@@ -260,7 +267,7 @@ export function CoverLetter() {
                 <div className="w-3.5 h-3.5 rounded-full bg-amber-500 shadow-xs" />
                 <div className="w-3.5 h-3.5 rounded-full bg-emerald-500 shadow-xs" />
                 <span className="ml-3 text-xs font-black uppercase tracking-wider text-slate-600 dark:text-slate-400 hidden sm:inline">
-                  Personalized Draft Document
+                  Personalized Executive Cover Letter
                 </span>
               </div>
 
@@ -282,7 +289,7 @@ export function CoverLetter() {
                   className="h-10 px-4 rounded-xl text-xs font-black bg-gradient-to-r from-indigo-600 via-primary to-purple-600 text-white shadow-md shadow-indigo-500/25 hover:shadow-indigo-500/35 transition-all border-none" 
                   onClick={handleDownload}
                 >
-                  <Download size={15} className="mr-1.5" /> Export PDF/TXT
+                  <Download size={15} className="mr-1.5" /> Export TXT
                 </Button>
               </div>
             </div>
@@ -290,8 +297,55 @@ export function CoverLetter() {
             {/* Document Body */}
             <CardContent className="p-0 relative z-10">
               <div className="p-8 sm:p-14 relative">
-                <div className="prose prose-sm md:prose-base dark:prose-invert max-w-none font-serif leading-[1.85] text-slate-900 dark:text-slate-100 whitespace-pre-wrap relative z-10 selection:bg-indigo-500/20">
-                  {report.content}
+                {/* Letterhead Header */}
+                <div className="border-b border-slate-200 dark:border-slate-800 pb-6 mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+                      {userProfile?.full_name || currentUser?.email?.split('@')[0] || 'Applicant'}
+                    </h3>
+                    <p className="text-xs font-bold text-indigo-600 dark:text-indigo-400 mt-1 uppercase tracking-wider">
+                      Target Role: {activeJobDetails?.job_title || 'Full Stack Developer'}
+                    </p>
+                  </div>
+                  <div className="text-left sm:text-right text-xs font-semibold text-slate-500 dark:text-slate-400">
+                    <p>{new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+                    <p className="text-slate-700 dark:text-slate-300 font-bold mt-1">{activeJobDetails?.company_name || 'Hiring Manager / Team'}</p>
+                  </div>
+                </div>
+
+                {/* Formatted Cover Letter Body */}
+                <div className="max-w-none text-slate-900 dark:text-slate-100 font-sans leading-relaxed relative z-10 selection:bg-indigo-500/20 space-y-5">
+                  {(() => {
+                    const text = report.content || "";
+                    const paragraphs = text
+                      .split(/\n\s*\n/)
+                      .map(p => p.trim())
+                      .filter(Boolean);
+
+                    if (paragraphs.length <= 1 && text.length > 250) {
+                      const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+                      const chunked = [];
+                      let current = "";
+                      sentences.forEach((sentence, idx) => {
+                        current += sentence + " ";
+                        if (current.length > 220 || idx === sentences.length - 1) {
+                          chunked.push(current.trim());
+                          current = "";
+                        }
+                      });
+                      return chunked.map((para, i) => (
+                        <p key={i} className="text-base sm:text-lg leading-relaxed text-slate-800 dark:text-slate-200 font-normal">
+                          {para}
+                        </p>
+                      ));
+                    }
+
+                    return paragraphs.map((para, idx) => (
+                      <p key={idx} className="text-base sm:text-lg leading-relaxed text-slate-800 dark:text-slate-200 font-normal whitespace-pre-line">
+                        {para}
+                      </p>
+                    ));
+                  })()}
                 </div>
               </div>
               
