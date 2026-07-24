@@ -202,35 +202,47 @@ The table below documents the exact instructions and prompts engineered for each
 ### 1. Landing Page
 <img width="1919" height="876" alt="image" src="https://github.com/user-attachments/assets/cd222d41-e9ce-4833-8848-67346355a156" />
 
-*Hero section highlighting HireReady AI's core capabilities, features showcase, and value proposition.*
+**Hero section highlighting HireReady AI's core capabilities, features showcase, and value proposition.**
 
 ### 2. Authentication (Login / Signup)
-![Login and Signup](docs/screenshots/auth.png)
-*Secure email and password authentication powered by Supabase Auth.*
+<img width="675" height="826" alt="image" src="https://github.com/user-attachments/assets/11cb0687-4242-4e87-a804-9e04fe597aaf" /> <img width="649" height="796" alt="image" src="https://github.com/user-attachments/assets/4bf6dd13-548c-41c1-bbaa-9681861dcc8d" /> <img width="615" height="790" alt="image" src="https://github.com/user-attachments/assets/73f68fdd-88ab-4502-b63f-6d552cfd76d0" />
+
+**Secure email and password authentication powered by Supabase Auth.**
 
 ### 3. Dashboard
-![Dashboard](docs/screenshots/dashboard.png)
-*Overview of active resume, target job description, recent activity stream, and quick module actions.*
+<img width="1919" height="867" alt="image" src="https://github.com/user-attachments/assets/f4bb4fe8-a248-4408-b2fb-9912b543fc80" />
 
-### 4. Resume Upload
-![Resume Upload](docs/screenshots/resume-upload.png)
-*Drag-and-drop PDF resume upload with in-browser text extraction and tier limit tracking.*
+**Overview of active resume, target job description, recent activity stream, and quick module actions.**
+
+### 4. Resume Upload and Job Description
+<img width="1917" height="877" alt="image" src="https://github.com/user-attachments/assets/73fbc91f-fc20-4e7e-a18f-1c7bf9d2b505" /> <img width="1914" height="888" alt="image" src="https://github.com/user-attachments/assets/016a1ec4-56c8-4eaa-8af1-bc8289bf34b8" />
+
+**Drag-and-drop PDF resume upload with in-browser text extraction and job description saving.**
 
 ### 5. Resume Analysis
-![Resume Analysis](docs/screenshots/resume-analysis.png)
-*AI-driven structural analysis breaking down resume strengths and weaknesses.*
+<img width="1912" height="870" alt="image" src="https://github.com/user-attachments/assets/8204a753-5e4b-4c27-b581-e9a64b39bc6c" />
+
+**AI-driven structural analysis breaking down resume strengths and weaknesses.**
 
 ### 6. ATS Compatibility Matching
-![ATS Matching](docs/screenshots/ats-score.png)
-*ATS compatibility gauge displaying percentage score, matching keywords, and missing keywords.*
+<img width="1913" height="872" alt="image" src="https://github.com/user-attachments/assets/893d8997-06f3-4595-81f0-43e1e1ceba75" />
 
-### 7. Cover Letter Generator
-![Cover Letter Generator](docs/screenshots/cover-letter.png)
-*Custom cover letter generator with multi-tone selection, instant preview, and export controls.*
+**ATS compatibility gauge displaying percentage score, matching keywords, and missing keywords.**
 
-### 8. Executive Summary Report
-![Final Report](docs/screenshots/final-report.png)
-*Holistic match score gauge and executive summary report.*
+### 7. Skill Gap & Learning Roadmap
+<img width="1919" height="836" alt="image" src="https://github.com/user-attachments/assets/8e73b44c-7483-437f-b16f-8250363bd6e8" /> <img width="1323" height="868" alt="image" src="https://github.com/user-attachments/assets/13fa2efd-b045-41af-aff8-346b95a2d425" />
+
+**Intelligent AI skill gap detection that compares your resume against target job requirements and generates a personalized learning roadmap with actionable recommendations to strengthen your profile.**
+
+### 8. Cover Letter Generator
+<img width="1919" height="879" alt="image" src="https://github.com/user-attachments/assets/d4ed249d-85cf-4806-91ac-6a58ddab0cba" /> <img width="993" height="860" alt="image" src="https://github.com/user-attachments/assets/220ba041-4084-4d12-b024-e3b76fc3cf5f" />
+
+**Custom cover letter generator with multi-tone selection, instant preview, and export controls.**
+
+### 9. Executive Summary Report
+<img width="1910" height="874" alt="image" src="https://github.com/user-attachments/assets/8d1ee181-ac38-45e4-99e2-fe207548d591" />
+
+**Holistic match score gauge and executive summary report.**
 
 ---
 
