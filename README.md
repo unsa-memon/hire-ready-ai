@@ -205,7 +205,9 @@ The table below documents the exact instructions and prompts engineered for each
 **Hero section highlighting HireReady AI's core capabilities, features showcase, and value proposition.**
 
 ### 2. Authentication (Login / Signup)
-<img width="675" height="826" alt="image" src="https://github.com/user-attachments/assets/11cb0687-4242-4e87-a804-9e04fe597aaf" /> <img width="649" height="796" alt="image" src="https://github.com/user-attachments/assets/4bf6dd13-548c-41c1-bbaa-9681861dcc8d" /> <img width="615" height="790" alt="image" src="https://github.com/user-attachments/assets/73f68fdd-88ab-4502-b63f-6d552cfd76d0" />
+<img width="1912" height="869" alt="image" src="https://github.com/user-attachments/assets/82f143f6-8a51-4fbe-8dae-7143f017e19a" />
+<img width="1916" height="869" alt="image" src="https://github.com/user-attachments/assets/f6a601c6-2b68-4506-8a06-68d3af71a833" />
+<img width="1916" height="870" alt="image" src="https://github.com/user-attachments/assets/2c50f18e-dd99-465f-8cf8-fe6a558cb149" />
 
 **Secure email and password authentication powered by Supabase Auth.**
 
