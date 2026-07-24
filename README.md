@@ -59,7 +59,7 @@ CareerBeam AI acts as a personal AI career strategist. By ingesting a candidate'
 
 ## 🔄 Application Architecture & Workflow
 
-CareerBeam AI uses a modern client-heavy architecture backed by Supabase for authentication and relational storage, alongside Google Gemini 2.5 Flash for high-speed generative intelligence.
+CareerBeam AI follows a modern client-centric architecture powered by Supabase for authentication, storage, and data management, while Google Gemini 2.5 Flash enables intelligent resume analysis, ATS matching, interview coaching, cover letter generation, and personalized career recommendations.
 
 ```mermaid
 flowchart TD
