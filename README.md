@@ -1,6 +1,6 @@
 # CareerBeam AI — Your AI-Powered Career Accelerator
 
-[![Live Application](https://img.shields.io/badge/Live_App-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)]https://career-beam-ai.vercel.app/
+[![Live Application](https://img.shields.io/badge/Live_App-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://career-beam-ai.vercel.app/)
 [![React](https://img.shields.io/badge/React-19.x-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-6.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
@@ -10,7 +10,7 @@
 
 > **CareerBeam AI** is an intelligent, end-to-end career acceleration platform that empowers job seekers through Artificial Intelligence. Rather than offering a single resume-checking tool, CareerBeam AI brings every essential stage of the job application journey into one seamless platform. Users can analyze resumes, measure ATS compatibility, identify skill gaps, generate personalized cover letters, follow AI-generated learning roadmaps, practice mock interviews, and receive comprehensive career reports—all powered by intelligent, context-aware AI assistance. Built with modern web technologies and AI integration, CareerBeam AI helps candidates prepare smarter, improve faster, and approach every job opportunity with confidence.
 
-🔗 **Live Production URL**: [https://hire-ready-ai-rose.vercel.app/](https://hire-ready-ai-rose.vercel.app/)
+🔗 **Live Production URL**: [https://career-beam-ai.vercel.app/](https://career-beam-ai.vercel.app/)
 
 ---
 
@@ -368,7 +368,7 @@ careerbeam-ai/
 ## 👥 Author & License
 
 **Author**: Unsa Memon  
-**Live Project**: [https://hire-ready-ai-rose.vercel.app/](https://hire-ready-ai-rose.vercel.app/)  
+**Live Project**: [https://career-beam-ai.vercel.app/](https://career-beam-ai.vercel.app/)  
 **GitHub Repository**: [https://github.com/unsa-memon/careerbeam-ai](https://github.com/unsa-memon/careerbeam-ai)
 
 ### License
