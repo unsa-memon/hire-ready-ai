@@ -268,10 +268,18 @@ export async function generateInterviewFeedback(question, answer, jobDescription
  * 6. Final Report
  */
 export async function generateFinalReport(resumeText, jobDescriptionText) {
-    const prompt = `Provide a conclusive executive summary (3-4 sentences) dictating whether this candidate is highly competitive, moderately aligned, or under-qualified for this explicit role. Include a holistic integer match score out of 100.
+    const prompt = `You are an executive hiring strategist evaluating candidate alignment for a targeted role.
+    Provide a comprehensive, highly articulate executive evaluation thesis dictating whether this candidate is highly competitive, moderately aligned, or under-qualified. Include a holistic integer match score out of 100.
+
+    CRITICAL FORMATTING RULES:
+    1. Separate your evaluation into 3 distinct, well-spaced paragraphs using double newlines (\n\n):
+       - Paragraph 1 (Holistic Fit): High-level analysis of candidate alignment, core strengths, and foundational education/skills matching the job.
+       - Paragraph 2 (Technical & Experience Gaps): Specific breakdown of technical experience, tools, or frameworks present vs. missing relative to job requirements.
+       - Paragraph 3 (Strategic Recommendation): Actionable, constructive guidance on exact technical areas or portfolio projects to focus on next.
+    2. Maintain an articulate, objective, and encouraging executive tone.
 
     Resume: ${resumeText}
-    Job: ${jobDescriptionText}`;
+    Job Description: ${jobDescriptionText}`;
 
     return generateSafeContent(prompt, {
         type: Type.OBJECT,
